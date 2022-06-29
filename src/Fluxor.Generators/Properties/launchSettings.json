@@ -1,0 +1,8 @@
+﻿{
+  "profiles": {
+    "FluxorGeneratorsDemo.Cli": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\..\\demo\\FluxorGeneratorsDemo.Cli\\FluxorGeneratorsDemo.Cli.csproj"
+    }
+  }
+}
