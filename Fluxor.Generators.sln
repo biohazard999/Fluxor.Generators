@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{98C4B353-F4CC-4FF6-8AED-E086C1BBCA19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluxor.Generators", "src\Fluxor.Generators\Fluxor.Generators.csproj", "{7AC9B89B-2893-48B8-8087-F27A7B3E1E87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DE536B18-6F94-452E-BF4E-9E0D2AAFE757}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluxor.Generators.Tests", "test\Fluxor.Generators.Tests\Fluxor.Generators.Tests.csproj", "{1460AF55-5D26-4548-848F-0B4DC982B625}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AC9B89B-2893-48B8-8087-F27A7B3E1E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AC9B89B-2893-48B8-8087-F27A7B3E1E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AC9B89B-2893-48B8-8087-F27A7B3E1E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AC9B89B-2893-48B8-8087-F27A7B3E1E87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1460AF55-5D26-4548-848F-0B4DC982B625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1460AF55-5D26-4548-848F-0B4DC982B625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1460AF55-5D26-4548-848F-0B4DC982B625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1460AF55-5D26-4548-848F-0B4DC982B625}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7AC9B89B-2893-48B8-8087-F27A7B3E1E87} = {98C4B353-F4CC-4FF6-8AED-E086C1BBCA19}
+		{1460AF55-5D26-4548-848F-0B4DC982B625} = {DE536B18-6F94-452E-BF4E-9E0D2AAFE757}
+	EndGlobalSection
+EndGlobal
