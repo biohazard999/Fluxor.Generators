@@ -45,15 +45,20 @@ public class DispatcherExtensionsSourceGenerator : ISourceGenerator
             return;
         }
 
-        compilation = AddFile(
-            context,
-            compilation,
-            addedFiles,
-            CreateAttribute(CurlyIndenter.Create()).ToString(),
-            "DispatchableAttribute"
-        );
-
         var dispatchableAttribute = compilation.GetTypeByMetadataName("Fluxor.DispatchableAttribute");
+
+        if (dispatchableAttribute is null)
+        {
+            compilation = AddFile(
+                context,
+                compilation,
+                addedFiles,
+                CreateAttribute(CurlyIndenter.Create()).ToString(),
+                "DispatchableAttribute"
+            );
+        }
+
+        dispatchableAttribute = compilation.GetTypeByMetadataName("Fluxor.DispatchableAttribute");
 
         if (dispatchableAttribute is null)
         {

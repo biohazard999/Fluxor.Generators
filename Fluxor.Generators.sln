@@ -1,27 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32611.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{98C4B353-F4CC-4FF6-8AED-E086C1BBCA19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluxor.Generators", "src\Fluxor.Generators\Fluxor.Generators.csproj", "{7AC9B89B-2893-48B8-8087-F27A7B3E1E87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluxor.Generators", "src\Fluxor.Generators\Fluxor.Generators.csproj", "{7AC9B89B-2893-48B8-8087-F27A7B3E1E87}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DE536B18-6F94-452E-BF4E-9E0D2AAFE757}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluxor.Generators.Tests", "test\Fluxor.Generators.Tests\Fluxor.Generators.Tests.csproj", "{1460AF55-5D26-4548-848F-0B4DC982B625}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluxor.Generators.Tests", "test\Fluxor.Generators.Tests\Fluxor.Generators.Tests.csproj", "{1460AF55-5D26-4548-848F-0B4DC982B625}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{AFEB4835-C0E0-4ABF-9C9C-92323012CF43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluxorGeneratorsDemo.Cli", "demo\FluxorGeneratorsDemo.Cli\FluxorGeneratorsDemo.Cli.csproj", "{200EE3B1-214F-4F85-9749-C23B8DACAA12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluxorGeneratorsDemo.Cli", "demo\FluxorGeneratorsDemo.Cli\FluxorGeneratorsDemo.Cli.csproj", "{200EE3B1-214F-4F85-9749-C23B8DACAA12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluxor.Generators.Attributes", "src\Fluxor.Generators.Attributes\Fluxor.Generators.Attributes.csproj", "{C50E4FD1-3B59-4868-A9E3-F9830D04C569}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7AC9B89B-2893-48B8-8087-F27A7B3E1E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -36,10 +35,21 @@ Global
 		{200EE3B1-214F-4F85-9749-C23B8DACAA12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{200EE3B1-214F-4F85-9749-C23B8DACAA12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{200EE3B1-214F-4F85-9749-C23B8DACAA12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C50E4FD1-3B59-4868-A9E3-F9830D04C569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C50E4FD1-3B59-4868-A9E3-F9830D04C569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C50E4FD1-3B59-4868-A9E3-F9830D04C569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C50E4FD1-3B59-4868-A9E3-F9830D04C569}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7AC9B89B-2893-48B8-8087-F27A7B3E1E87} = {98C4B353-F4CC-4FF6-8AED-E086C1BBCA19}
 		{1460AF55-5D26-4548-848F-0B4DC982B625} = {DE536B18-6F94-452E-BF4E-9E0D2AAFE757}
 		{200EE3B1-214F-4F85-9749-C23B8DACAA12} = {AFEB4835-C0E0-4ABF-9C9C-92323012CF43}
+		{C50E4FD1-3B59-4868-A9E3-F9830D04C569} = {98C4B353-F4CC-4FF6-8AED-E086C1BBCA19}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13432423-0468-40F9-8200-9481C2FB65CD}
 	EndGlobalSection
 EndGlobal
