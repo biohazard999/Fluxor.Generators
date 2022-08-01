@@ -59,11 +59,12 @@ public class DispatcherExtensionsSourceGenerator : ISourceGenerator
         }
 
         dispatchableAttribute = compilation.GetTypeByMetadataName("Fluxor.DispatchableAttribute");
-
         if (dispatchableAttribute is null)
         {
             return;
         }
+
+        var enumType = compilation.GetTypeByMetadataName("System.Enum");
 
         var dispatchables = new List<(TypeDeclarationSyntax type, INamedTypeSymbol symbol)>();
 
@@ -97,9 +98,13 @@ public class DispatcherExtensionsSourceGenerator : ISourceGenerator
         builder.WriteLine();
         builder.WriteLine("using Fluxor;");
         builder.WriteLine();
+        builder.WriteLine("#nullable enable");
+        builder.WriteLine();
+
+        var assemblyName = context.Compilation.Assembly.Name.Replace(".", "_");
 
         using (builder.OpenBrace("namespace Fluxor"))
-        using (builder.OpenBrace("public static class DispatcherExtensions"))
+        using (builder.OpenBrace($"public static class {assemblyName}_DispatcherExtensions"))
         {
             foreach (var (type, symbol) in dispatchables)
             {
@@ -116,6 +121,57 @@ public class DispatcherExtensionsSourceGenerator : ISourceGenerator
                         sb.Append(parameters.Type);
                         sb.Append(" ");
                         sb.Append(parameters.Name);
+
+                        if (parameters.HasExplicitDefaultValue)
+                        {
+                            sb.Append(" = ");
+                            if (parameters.ExplicitDefaultValue is string)
+                            {
+                                sb.Append($"\"{parameters.ExplicitDefaultValue}\"");
+                            }
+                            else if (parameters.Type is INamedTypeSymbol nullAble && nullAble.ConstructedFrom.SpecialType == SpecialType.System_Nullable_T)
+                            {
+                                var underlyingType = nullAble.TypeArguments[0];
+
+                                if (underlyingType.SpecialType == SpecialType.None)
+                                {
+                                    var enumVal = underlyingType.GetMembers().OfType<IFieldSymbol>().First(f => f.ConstantValue?.Equals(parameters.ExplicitDefaultValue) ?? false).ToString();
+                                    if (parameters.ExplicitDefaultValue is null)
+                                    {
+                                        sb.Append("null");
+                                    }
+                                    else
+                                    {
+                                        sb.Append(enumVal);
+                                    }
+                                }
+                                else
+                                {
+                                    sb.Append(parameters.ExplicitDefaultValue?.ToString() ?? "null");
+                                }
+                            }
+                            else if (parameters.Type.BaseType is not null
+                                && parameters.Type.BaseType.Equals(enumType, SymbolEqualityComparer.IncludeNullability))
+                            {
+                                if (parameters.Type is INamedTypeSymbol enumParameter)
+                                {
+                                    var enumVal = enumParameter.GetMembers().OfType<IFieldSymbol>().First(f => f.ConstantValue?.Equals(parameters.ExplicitDefaultValue) ?? false).ToString();
+
+                                    sb.Append(enumVal);
+                                }
+                            }
+                            else
+                            {
+                                if (parameters.ExplicitDefaultValue is null)
+                                {
+                                    sb.Append("null");
+                                }
+                                else
+                                {
+                                    sb.Append(parameters.ExplicitDefaultValue.ToString());
+                                }
+                            }
+                        }
                     }
 
                     using (builder.OpenBrace($"public static void Dispatch{symbol.Name}(this IDispatcher dispatcher{sb})"))
